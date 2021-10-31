@@ -17,20 +17,21 @@ let playerSelection;
 
 // function to get user prompt and basic input validation
 function playerInput() {
+    //let playerChoice;
     let playerChoice = window.prompt("Choose and type Rock, Paper or Scissors");
-
-    if (!(playerChoice.toLowerCase() == ("rock" || "paper" || "scissors"))) {
-        playerChoice = window.prompt("Please ONLY type Rock, Paper or Scissors");       
+    playerChoice = playerChoice.toLowerCase();
+    while (!(playerChoice == "rock" || playerChoice == "paper" || playerChoice == "scissors")) {
+        playerChoice = window.prompt("Please ONLY enter Rock, Paper or Scissors");
+        playerChoice = playerChoice.toLowerCase();
     }
-    else (playerChoice.toLowerCase() == ("rock" || "paper" || "scissors"))
-        playerSelection = playerChoice;
+    playerSelection = playerChoice;  
 }
 
 // function for ONE round of play, includes solution to avoid case sensitivity
 
 // keeping both boolean variable global to reference them again
-let isWin = Boolean(false); // if true player is winner, if false comp is winner
-let isTie = Boolean(false); // if true there is a tie, if false no tie
+let win = Boolean(false); // if true player is winner, if false comp is winner
+let tie = Boolean(false); // if true there is a tie, if false no tie
 
 function playRound(playerSelection, computerSelection) {
     // case insensitivity
@@ -38,40 +39,40 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = computerSelection.toLowerCase();
     // case of tie
     if (playerSelection == computerSelection) {
-        isTie = true; // setting tie boolean to true
+        tie = true; // setting tie boolean to true
         return "Tie! You both chose " + playerSelection;
     }
     // cases of non tie
     else if (playerSelection == "rock") {
-        isTie = false; // setting tie boolean to false
+        tie = false; // setting tie boolean to false
         if (computerSelection == "paper") {
-            isWin = false; // setting win or lose boolean to false because of loss
+            win = false; // setting win or lose boolean to false because of loss
             return "You Lose! " + computerSelection + " beats " + playerSelection;
         }
         else if (computerSelection == "scissors") {
-            isWin = true; // setting winOrLoss boolean to true because of win
+            win = true; // setting winOrLoss boolean to true because of win
             return "You Win! " + playerSelection + " beats " + computerSelection;
         }
     }
     else if (playerSelection == "paper") {
-        isTie = false;
+        tie = false;
         if (computerSelection == "rock") {
-            isWin = true;
+            win = true;
             return "You Win! " + playerSelection + " beats " + computerSelection;
         }
         else if (computerSelection == "scissors") {
-            isWin = false;
+            win = false;
             return "You Lose! " + computerSelection + " beats " + playerSelection;
         }
     }
     else if (playerSelection == "scissors") {
-        isTie = false;
+        tie = false;
         if (computerSelection == "rock") {
-            isWin = false;
+            win = false;
             return "You Lose! " + computerSelection + " beats " + playerSelection;
         }
         else if (computerSelection == "paper") {
-            isWin = true;
+            win = true;
             return "You Win! " + playerSelection + " beats " + computerSelection;
         }   
     }
@@ -87,18 +88,18 @@ function game() {
         playRound(playerSelection, computerPlay());
         console.log(playRound(playerSelection, computerPlay()));
         
-        if (isTie) {
+        if (tie) {
             //console.log("tie");
             i = i;
             j = j;
             console.log("player " + i);
             console.log("comp " + j);
         }
-        else if (!(isTie)) {
-            if (isWin) {
+        else if (!(tie)) {
+            if (win) {
                 i++;
             }
-            else if (!(isWin)) {
+            else if (!(win)) {
                 j++;
             }
         console.log("player " + i);
