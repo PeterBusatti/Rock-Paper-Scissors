@@ -13,7 +13,7 @@ if same choice return a tie.
 need cases for 3 player choices (r,p,s) with each case having two outcomes: win or
 lose.
 */ 
-let playerSelection;
+let playerSelection; 
 
 // function to get user prompt and basic input validation
 function playerInput() {
@@ -36,11 +36,12 @@ function playRound(playerSelection, computerSelection) {
     // case insensitivity
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
-    
+    // case of tie
     if (playerSelection == computerSelection) {
         isTie = true; // setting tie boolean to true
         return "Tie! You both chose " + playerSelection;
     }
+    // cases of non tie
     else if (playerSelection == "rock") {
         isTie = false; // setting tie boolean to false
         if (computerSelection == "paper") {
