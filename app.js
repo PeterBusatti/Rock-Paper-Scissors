@@ -2,9 +2,6 @@
 scissors 
 */
 const CHOICE = ["Rock", "Paper", "Scissors"];
-let isWin = Boolean(false); // if true player is winner, if false comp is winner
-let isTie = Boolean(false); // if true there is a tie, if false no tie
-
 
 function computerPlay() {
     return CHOICE[Math.floor(Math.random() * CHOICE.length)];
@@ -12,12 +9,13 @@ function computerPlay() {
 
 /* create a function to play a single round, takes two parameters: playerSelection
 and computerSelection.
-if same choice return a tie.
+if same choice return a tie. 
 need cases for 3 player choices (r,p,s) with each case having two outcomes: win or
 lose.
 */ 
 let playerSelection;
 
+// function to get user prompt and basic input validation
 function playerInput() {
     let playerChoice = window.prompt("Choose and type Rock, Paper or Scissors");
 
@@ -28,7 +26,14 @@ function playerInput() {
         playerSelection = playerChoice;
 }
 
+// function for ONE round of play, includes solution to avoid case sensitivity
+
+// keeping both boolean variable global to reference them again
+let isWin = Boolean(false); // if true player is winner, if false comp is winner
+let isTie = Boolean(false); // if true there is a tie, if false no tie
+
 function playRound(playerSelection, computerSelection) {
+    // case insensitivity
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
     
@@ -72,11 +77,10 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
+// function to play a game to a score of 5 using a while loop
 function game() {
-    
-    
-    i = 0; // player wins
-    j = 0; // computer wins
+    i = 0; // player win counter
+    j = 0; // computer win counter
     while ((i < 5 && j != 5) || (j < 5 && i != 5)) { // i = player counter , j = computer counter
         playerInput();
         playRound(playerSelection, computerPlay());
