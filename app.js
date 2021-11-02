@@ -42,15 +42,30 @@ function playRound(playerSelection, computerSelection) {
         tie = true; // setting tie boolean to true
         return "Tie! You both chose " + playerSelection;
     }
-    // cases of non tie
-    else if (playerSelection == "rock") {
+    // cases loss
+    else if (playerSelection === "rock" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "scissors" ||
+              playerSelection === "scissors" && computerSelection === "rock") {
         tie = false; // setting tie boolean to false
+        win = false; // false = player loss
+        return "You Lose! " + computerSelection + " beats " + playerSelection;
+    }
+    // cases of win
+    else if (playerSelection === "rock" && computerSelection === "scissors" || playerSelection === "paper" && computerSelection == "rock" ||
+              playerSelection === "scissors" && computerSelection === "paper") {
+        tie = false;
+        win = true;
+        return "You Win! " + playerSelection + " beats " + computerSelection;
+    }
+        
+        
+        
+/*       
         if (computerSelection == "paper") {
-            win = false; // setting win or lose boolean to false because of loss
+            win = false; // setting win boolean to false because of loss
             return "You Lose! " + computerSelection + " beats " + playerSelection;
         }
         else if (computerSelection == "scissors") {
-            win = true; // setting winOrLoss boolean to true because of win
+            win = true; // setting win boolean to true because of win
             return "You Win! " + playerSelection + " beats " + computerSelection;
         }
     }
@@ -76,7 +91,7 @@ function playRound(playerSelection, computerSelection) {
             return "You Win! " + playerSelection + " beats " + computerSelection;
         }   
     }
-
+*/
 }
 
 // function to play a game to a score of 5 using a while loop
