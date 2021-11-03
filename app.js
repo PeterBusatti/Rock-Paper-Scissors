@@ -17,7 +17,6 @@ let playerSelection;
 
 // function to get user prompt and basic input validation
 function playerInput() {
-    //let playerChoice;
     let playerChoice = window.prompt("Choose and type Rock, Paper or Scissors");
     playerChoice = playerChoice.toLowerCase();
     while (!(playerChoice == "rock" || playerChoice == "paper" || playerChoice == "scissors")) {
@@ -42,7 +41,7 @@ function playRound(playerSelection, computerSelection) {
         tie = true; // setting tie boolean to true
         return "Tie! You both chose " + playerSelection;
     }
-    // cases loss
+    // cases of loss
     else if (playerSelection === "rock" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "scissors" ||
               playerSelection === "scissors" && computerSelection === "rock") {
         tie = false; // setting tie boolean to false
@@ -56,42 +55,6 @@ function playRound(playerSelection, computerSelection) {
         win = true;
         return "You Win! " + playerSelection + " beats " + computerSelection;
     }
-        
-        
-        
-/*       
-        if (computerSelection == "paper") {
-            win = false; // setting win boolean to false because of loss
-            return "You Lose! " + computerSelection + " beats " + playerSelection;
-        }
-        else if (computerSelection == "scissors") {
-            win = true; // setting win boolean to true because of win
-            return "You Win! " + playerSelection + " beats " + computerSelection;
-        }
-    }
-    else if (playerSelection == "paper") {
-        tie = false;
-        if (computerSelection == "rock") {
-            win = true;
-            return "You Win! " + playerSelection + " beats " + computerSelection;
-        }
-        else if (computerSelection == "scissors") {
-            win = false;
-            return "You Lose! " + computerSelection + " beats " + playerSelection;
-        }
-    }
-    else if (playerSelection == "scissors") {
-        tie = false;
-        if (computerSelection == "rock") {
-            win = false;
-            return "You Lose! " + computerSelection + " beats " + playerSelection;
-        }
-        else if (computerSelection == "paper") {
-            win = true;
-            return "You Win! " + playerSelection + " beats " + computerSelection;
-        }   
-    }
-*/
 }
 
 // function to play a game to a score of 5 using a while loop
@@ -130,6 +93,4 @@ function game() {
     }
 }
 
-//const computerSelection = computerPlay();
 
-//console.log(playRound(playerSelection, computerPlay()))
