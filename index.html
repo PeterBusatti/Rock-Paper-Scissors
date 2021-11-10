@@ -2,12 +2,38 @@
 
 <html>
 <head>
-  <title>Page Title</title>
+  <title>Rock Paper Scissors</title>
   <meta charset="UTF-8"/>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  
+  <div id="container">
+    <h1 id="title">Rock Paper Scissors</h1>
+    <p id="rules">Welcome to the battlefield! This is a classic game of rock paper
+      scissors. 
+      <br>The rules are such: Rock beats scissors, scissors beats paper, and paper
+      beats rock. 
+      <br>The game is to a score of 5. Good luck!
+    </p>
+    <p id="choice-select-text">Please select your choice:</p>
+    <div id="button-container">
+     <input id="rock-btn" class="btn" type="image" src="images/rock-png.png" alt="rock image"/>
+     <input id="paper-btn" class="btn" type="image" src="images/paper-png.png" alt="paper image"/>
+     <input id="scissors-btn" class="btn" type="image" src="images/scissors-png.png" alt="scissors image"/>
+    </div>
+    <div id="result-display-container">
+      <div id="player-score">
+        <p>Player Score</p>
+        <div>0</div>
+      </div>
+      <div id="cpu-score">
+        <p>Cpu Score</p>
+        <div>0</div>
+      </div>
+    </div>
+  </div>  
+
   
   <script src="app.js"></script>
 </body>
