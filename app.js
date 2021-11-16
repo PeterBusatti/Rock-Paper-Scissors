@@ -1,12 +1,4 @@
-/* create a function called computerPlay that will randomly return rock paper or
-scissors 
-*/
 const CHOICE = ["Rock", "Paper", "Scissors"];
-
-function computerPlay() {
-    return CHOICE[Math.floor(Math.random() * CHOICE.length)];
-}
-
 const playerOutput = document.getElementById("player-output");
 const cpuOutput = document.getElementById("cpu-output");
 const container = document.getElementById("container");
@@ -22,6 +14,10 @@ btn.forEach(input => {input.addEventListener("mouseleave", removeBorder)} );
 btn.forEach(input => {input.addEventListener("click", getPlayerChoice)} );
 
 replayButton.addEventListener("click", () => location.reload());
+
+function computerPlay() {
+    return CHOICE[Math.floor(Math.random() * CHOICE.length)];
+}
 
 function playRound(playerSelection, computerSelection) {
     logDisplay.style.display = "block";
